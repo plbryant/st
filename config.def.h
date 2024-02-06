@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrainsMono Nerd Font :pixelsize=15:antialias=true:autohint=true";
-static char *font2[] = { "JetBrainsMono Nerd Font :pixelsize=15:antialias=true:autohint=true" };
+static char *font = "Maple Mono NF:pixelsize=12:style:Bold:antialias=true:autohint=true";
+static char *font2[] = { "monospace:pixelsize=12:antialias=true:autohint=true" };
 static int borderpx = 0;
 
 /*
@@ -118,22 +118,22 @@ float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-  "#cc241d",
-  "#98971a",
-  "#d79921",
-  "#458588",
-  "#b16286",
-  "#689d6a",
-  "#a89984",
-  "#928374",
-  "#fb4934",
-  "#b8bb26",
-  "#fabd2f",
-  "#83a598",
-  "#d3869b",
-  "#8ec07c",
-  "#ebdbb2",
+  "#2E3440", /* Polar Night 1 */
+  "#BF616A", /* Red */
+  "#A3BE8C", /* Green */
+  "#EBCB8B", /* Yellow */
+  "#81A1C1", /* Blue */
+  "#B48EAD", /* Purple */
+  "#88C0D0", /* Cyan */
+  "#E5E9F0", /* Polar Night 5 */
+  "#4C566A", /* Frost 1 */
+  "#D8DEE9", /* Frost 2 */
+  "#ECEFF4", /* Frost 3 */
+  "#5E81AC", /* Frost 4 */
+  "#434C5E", /* Frost 5 */
+  "#D08770", /* Aurora 1 */
+  "#8FBCBB", /* Aurora 2 */
+  "#EBCB8B", /* Aurora 3 */
   [255] = 0,
   /* more colors can be added after 255 to use with DefaultXX */
   "#add8e6", /* 256 -> cursor */
@@ -256,43 +256,41 @@ static char *copyurlcmd[] = { "/bin/sh", "-c",
 static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
 
 static Shortcut shortcuts[] = {
-  /* mask                 keysym          function        argument */
-  { XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-  { ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-  { ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-  { XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-  { MODKEY,              XK_comma,       zoom,           {.f = +1} },
-  { MODKEY,              XK_period,        zoom,           {.f = -1} },
-  { MODKEY,               XK_g,        zoomreset,      {.f =  0} },
-  { ControlMask | ShiftMask,               XK_C,           clipcopy,       {.i =  0} },
-  { ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
-  { ControlMask | ShiftMask,               XK_V,           clippaste,      {.i =  0} },
-  { XK_ANY_MOD,		Button2,	selpaste,	{.i =  0} },
-  { MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-  { ControlMask | ShiftMask,               XK_U,           iso14755,       {.i =  0} },
-  { ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-  { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-  { MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
-  { MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
-  { MODKEY,               XK_k,           kscrollup,      {.i =  1} },
-  { MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
-  { MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
-  { MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
-  { MODKEY,               XK_u,           kscrollup,      {.i = -1} },
-  { MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
-  { MODKEY,		XK_s,		changealpha,	{.f = -0.05} },
-  { MODKEY,		XK_a,		changealpha,	{.f = +0.05} },
-  { MODKEY,		XK_m,		changealpha,	{.f = +2.00} },
-  { TERMMOD,              XK_Up,          zoom,           {.f = +1} },
-  { TERMMOD,              XK_Down,        zoom,           {.f = -1} },
-  { TERMMOD,              XK_K,           zoom,           {.f = +1} },
-  { TERMMOD,              XK_J,           zoom,           {.f = -1} },
-  { TERMMOD,              XK_U,           zoom,           {.f = +2} },
-  { TERMMOD,              XK_D,           zoom,           {.f = -2} },
-  { MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
-  { MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
-  { MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
-  { TERMMOD,              XK_Return,      newterm,        {.i =  0} },
+  /* mask                         keysym          function        argument */
+  { XK_ANY_MOD,                   XK_Break,       sendbreak,      {.i =  0} },
+  { ControlMask,                  XK_Print,       toggleprinter,  {.i =  0} },
+  { ShiftMask,                    XK_Print,       printscreen,    {.i =  0} },
+  { XK_ANY_MOD,                   XK_Print,       printsel,       {.i =  0} },
+  { ControlMask | ShiftMask,      XK_plus,        zoom,           {.f = +1} },
+  { ControlMask,                  XK_minus,       zoom,           {.f = -1} },
+  { ControlMask,                  XK_equal,       zoomreset,      {.f =  0} },
+  { ControlMask | ShiftMask,      XK_C,           clipcopy,       {.i =  0} },
+  { ShiftMask,                    XK_Insert,      clippaste,      {.i =  0} },
+  { ControlMask | ShiftMask,      XK_V,           clippaste,      {.i =  0} },
+  { XK_ANY_MOD,		                Button2,	      selpaste,	      {.i =  0} },
+  { MODKEY,                       XK_Num_Lock,    numlock,        {.i =  0} },
+  { ControlMask | ShiftMask,      XK_U,           iso14755,       {.i =  0} },
+  { ShiftMask,                    XK_Page_Up,     kscrollup,      {.i = -1} },
+  { ShiftMask,                    XK_Page_Down,   kscrolldown,    {.i = -1} },
+  { MODKEY,                       XK_Page_Up,     kscrollup,      {.i = -1} },
+  { MODKEY,                       XK_Page_Down,   kscrolldown,    {.i = -1} },
+  { MODKEY,                       XK_Up,          kscrollup,      {.i =  1} },
+  { MODKEY,                       XK_Down,        kscrolldown,    {.i =  1} },
+  { MODKEY,                       XK_u,           kscrollup,      {.i = -1} },
+  { MODKEY,                       XK_d,           kscrolldown,    {.i = -1} },
+  { MODKEY,                       XK_s,           changealpha,    {.f = -0.05} },
+  { MODKEY,                       XK_a,           changealpha,    {.f = +0.05} },
+  { MODKEY,                       XK_m,           changealpha,    {.f = +2.00} },
+  { TERMMOD,                      XK_Up,          zoom,           {.f = +1} },
+  { TERMMOD,                      XK_Down,        zoom,           {.f = -1} },
+  { TERMMOD,                      XK_K,           zoom,           {.f = +1} },
+  { TERMMOD,                      XK_J,           zoom,           {.f = -1} },
+  { TERMMOD,                      XK_U,           zoom,           {.f = +2} },
+  { TERMMOD,                      XK_D,           zoom,           {.f = -2} },
+  // { MODKEY,                       XK_l,           externalpipe,   {.v = openurlcmd } },
+  { MODKEY,                       XK_y,           externalpipe,   {.v = copyurlcmd } },
+  { MODKEY,                       XK_o,           externalpipe,   {.v = copyoutput } },
+  { TERMMOD,                      XK_Return,      newterm,        {.i =  0} },
 
 };
 
@@ -345,6 +343,12 @@ static uint forceselmod = ShiftMask;
  * world. Please decide about changes wisely.
  */
 static Key key[] = {
+
+  { XK_Tab,            ControlMask,    "\033[27;5;9~",  0,    0 },
+  { XK_Return,         ShiftMask,      "\033[13;2u",    0,    0 },
+  { XK_Return,         ControlMask,    "\033[13;5u",    0,    0 },
+  { XK_Return,         ShiftMask|ControlMask, "\033[13;6u", 0, 0 },
+
   /* keysym           mask            string      appkey appcursor */
   { XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
   { XK_KP_Home,       ShiftMask,      "\033[1;2H",     0,   +1},
