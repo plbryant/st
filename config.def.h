@@ -118,28 +118,27 @@ float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  "#2E3440", /* Polar Night 1 */
-  "#BF616A", /* Red */
-  "#A3BE8C", /* Green */
-  "#EBCB8B", /* Yellow */
-  "#81A1C1", /* Blue */
-  "#B48EAD", /* Purple */
-  "#88C0D0", /* Cyan */
-  "#E5E9F0", /* Polar Night 5 */
-  "#4C566A", /* Frost 1 */
-  "#D8DEE9", /* Frost 2 */
-  "#ECEFF4", /* Frost 3 */
-  "#5E81AC", /* Frost 4 */
-  "#434C5E", /* Frost 5 */
-  "#D08770", /* Aurora 1 */
-  "#8FBCBB", /* Aurora 2 */
-  "#EBCB8B", /* Aurora 3 */
+  "#3e353b",
+  "#d4969c",
+  "#b1a1d1",
+  "#e9cdd0",
+  "#70a9a1",
+  "#b58da6",
+  "#75a7b3",
+  "#c5bdd2",
+  "#4c566a",
+  "#d8dee9",
+  "#eceff4",
+  "#5e81ac",
+  "#434c5e",
+  "#d08770",
+  "#8fbcbb",
+  "#e9cdd0",
   [255] = 0,
-  /* more colors can be added after 255 to use with DefaultXX */
-  "#add8e6", /* 256 -> cursor */
-  "#555555", /* 257 -> rev cursor*/
-  "#282828", /* 258 -> bg */
-  "#ffffff", /* 259 -> fg */
+  "#c7aed6",
+  "#3d353b",
+  "#191724",
+  "#c7aed6",
 };
 
 
