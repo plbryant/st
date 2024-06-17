@@ -240,12 +240,13 @@ static MouseShortcut mshortcuts[] = {
 #define TERMMOD (Mod4Mask|ShiftMask)
 
 MouseKey mkeys[] = {
-  /* button               mask            function        argument */
-  { Button2,              Mod1Mask,       selpaste,       {.i =   0} },
-  { Button4,              XK_NO_MOD,      kscrollup,      {.i =  mousescrollincrement} },
-  { Button5,              XK_NO_MOD,      kscrolldown,    {.i =  mousescrollincrement} },
-  { Button4,              ControlMask,    zoom,           {.f =  +1} },
-  { Button5,              ControlMask,    zoom,           {.f =  -1} },
+  /* button               mask                        function        argument */
+  { Button4,              XK_NO_MOD,                  kscrollup,      {.i =  mousescrollincrement} },
+  { Button5,              XK_NO_MOD,                  kscrolldown,    {.i =  mousescrollincrement} },
+  { Button4,              ControlMask,                zoom,           {.f =  +1} },
+  { Button5,              ControlMask,                zoom,           {.f =  -1} },
+  { Button4,              ControlMask | ShiftMask,    zoom,           {.f =  +1} },
+  { Button5,              ControlMask | ShiftMask,    zoom,           {.f =  -1} },
 };
 
 static char *openurlcmd[] = { "/bin/sh", "-c", "st-urlhandler", "externalpipe", NULL };
@@ -263,9 +264,10 @@ static Shortcut shortcuts[] = {
   { ControlMask,                  XK_equal,       zoomreset,      {.f =  0} },
   { ControlMask | ShiftMask,      XK_C,           clipcopy,       {.i =  0} },
   { ControlMask | ShiftMask,      XK_V,           clippaste,      {.i =  0} },
-  { ControlMask,                  XK_K,           kscrollup,      {.i =  1} },
-  { ControlMask,                  XK_J,           kscrolldown,    {.i =  1} },
-  { TERMMOD,                      XK_T,           newterm,        {.i =  0} },
+  { ControlMask | ShiftMask,      XK_K,           kscrollup,      {.i =  1} },
+  { ControlMask | ShiftMask,      XK_J,           kscrolldown,    {.i =  1} },
+  { ControlMask | ShiftMask,      XK_T,           newterm,        {.i =  0} },
+  { XK_ANY_MOD,		                Button2,	      selpaste,	      {.i =  0} },
 
 };
 
