@@ -236,7 +236,11 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
+
+/* Mod1Mask = alt */
+/* Mod4Mask = super */
+
+#define MODKEY Mod1Mask alt
 #define TERMMOD (Mod4Mask|ShiftMask)
 
 MouseKey mkeys[] = {
